@@ -1,0 +1,14 @@
+{
+    "name": "simples",
+    "version": "0.0.1",
+    "author": "Benjamin Bohec <bbohec.pro@gmail.com>",
+    "description": "simple app",
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": "node ./app.js"
+    },
+    "dependencies": {
+        "compression": "^1.7.4",
+        "express": "~3.4.7"
+    }
+}

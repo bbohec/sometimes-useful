@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sans déconner...</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+      html {
+        height: 100%;
+        font-family: 'Arvo';
+      }
+      body {
+        position: relative;
+        height: 100%;
+        font-family: 'Arvo';
+      }
+      .container-fluid {
+        padding-top: 58px;
+        min-height: calc(100vh - 58px);
+      }
+      .first {
+        padding-top: 58px;
+        min-height: 100%;
+      }
+      a {
+        color: #1E90FF !important;
+        text-decoration: none !important;
+      }
+      .iframe-container{
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+      }
+      .iframe-container > *{
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+      }
+      #navbar .active a {
+          color: red !important;
+      }
+    </style>
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <a class="navbar-brand js-scroll-trigger" href="#sometimesuseful">Nan mais t'es sérieux?!</a>
+    </nav>
+
+
+<div class="container-fluid justify-content-center d-flex first" id="sometimesuseful">
+  <div class="row h-100 justify-content-around align-self-center">
+    <div class="col-sm-12 my-auto">
+      <h1 class="text-center mx-auto display-4">Qu'est ce que tu fous ici ?!</h1>
+      <p class="text-center mx-auto">Tu as tout gagné, je viens de blacklister ton adresse IP ma gueule!<br>😊😊😊<br>Voila ce qui se passe quand on fait chier un mec qui code et qui connait l'infra.<br>Retournes voler des comptes PSN sur GTA.</p>
+      <h2 class="text-center mx-auto display-4">😂💩😂</h2>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      (function($) {
+        "use strict"; // Start of use strict
+
+        // Smooth scrolling using jQuery easing
+        $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: (target.offset().top - 54)
+              }, 1000, "easeInOutExpo");
+              return false;
+            }
+          }
+        });
+
+        // Closes responsive menu when a scroll trigger link is clicked
+        $('.js-scroll-trigger').click(function() {
+          $('.navbar-collapse').collapse('hide');
+        });
+
+        // Activate scrollspy to add active class to navbar items on scroll
+        $('body').scrollspy({
+          target: '#mainNav',
+          offset: 54
+        });
+
+      })(jQuery); // End of use strict
+    </script>
+    <script type="text/javascript">
+      $('body').scrollspy({ target: '#navbar-example' })
+    </script>
+  </body>
+</html>

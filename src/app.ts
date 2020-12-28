@@ -5,6 +5,7 @@ import vhost from 'vhost'
 import {app1} from './apptest1/app'
 import {app2} from './apptest2/app'
 import {sometimesUsefulCom} from './sometimesUsefulCom/app';
+import {sometimesUsefulComv2} from './sometimesUsefulComv2/app'
 import {sometimesUsefulFr} from './sometimesUsefulFr/app';
 import {defaultApp} from './defaultApp/app'
 express()
@@ -12,7 +13,9 @@ express()
   .use( vhost( 'app1.test', app1 ) )
   .use( vhost( 'app2.test', app2 ) )
   .use( vhost( 'sometimesuseful.com', sometimesUsefulCom ) )
+  .use( vhost( 'sometimesusefulv2.com', sometimesUsefulComv2 ) )
   .use( vhost( 'www.sometimesuseful.com', sometimesUsefulCom ) )
+  .use( vhost( 'www.sometimesusefulv2.com', sometimesUsefulComv2 ) )
   .use( vhost( 'sometimesuseful.fr', sometimesUsefulFr ) )
   .use( vhost( 'www.sometimesuseful.fr', sometimesUsefulFr ) )
   .use( vhost( '*', defaultApp ) )

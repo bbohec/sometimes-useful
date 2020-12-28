@@ -6,13 +6,14 @@
     "license": "UNLICENSED",
     "scripts": {
         "clean": "rimraf dist/",
-        "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.svg src/**/*.docx dist/",
+        "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.gif src/**/*.css src/**/*.svg src/**/*.docx dist/",
         "build": "npm run clean && tsc && npm run copy-files",
+        "prestart": "npm run build",
         "start": "node dist/app.js"
     },
     "dependencies": {
         "compression": "^1.7.4",
-        "express": "~3.4.7",
+        "express": "~4.17.1",
         "vhost": "^3.0.2"
     },
     "devDependencies": {

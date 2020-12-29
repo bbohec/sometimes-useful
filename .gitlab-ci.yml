@@ -2,7 +2,7 @@ stages:
   - build
 build_docker_image:
   image: docker
-  stage: deploy
+  stage: build
   services:
     - docker:dind
   variables:

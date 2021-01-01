@@ -14,10 +14,15 @@ build_docker_image:
     - docker push $IMAGE_TAG
 deploy_staging:
   stage: deploy
-  image: $IMAGE_TAG
+  image: kroniak/ssh-client
   environment:
     name: staging
   script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker pull $IMAGE_TAG
-    - docker run --name $IMAGE_TAG_$$CI_ENVIRONMENT_NAME -p 80:80 $IMAGE_TAG
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "$STAGING_SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh $STAGING_SSH_HOST 'docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY'
+    - ssh $STAGING_SSH_HOST 'docker-compose run -d $IMAGE_TAG'
+    

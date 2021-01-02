@@ -35,24 +35,35 @@ ping_host:
   stage: test_ping
   image: kroniak/ssh-client
   script:
+    - ifconfig
     - ping -c 4 -W 1 $STAGING_SSH_HOST
 ping_local_network_machine:
   stage: test_ping
   image: kroniak/ssh-client
   script:
+    - ifconfig
     - ping -c 4 -W 1 192.168.1.40  
 ping_local_network_gateway:
   stage: test_ping
   image: kroniak/ssh-client
   script:
+    - ifconfig
     - ping -c 4 -W 1 192.168.1.254
 ping_bridge_network_gateway:
   stage: test_ping
   image: kroniak/ssh-client
   script:
+    - ifconfig
     - ping -c 4 -W 1 172.17.0.1 
 ping_google_dns:
   stage: test_ping
   image: kroniak/ssh-client
   script:
+    - ifconfig
     - ping -c 4 -W 1 8.8.8.8 
+ping_cloudflare_dns:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ifconfig
+    - ping -c 4 -W 1 1.1.1.1

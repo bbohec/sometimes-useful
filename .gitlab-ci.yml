@@ -1,6 +1,7 @@
 stages:
-  - build
-  - deploy
+#  - build
+#  - deploy
+  - test_ping
 variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
 build_docker_image:
@@ -30,4 +31,28 @@ deploy_staging:
     - ping -c 4 -W 1 $STAGING_SSH_HOST
     - ssh $STAGING_SSH_HOST 'docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY'
     - ssh $STAGING_SSH_HOST 'docker-compose run -d $IMAGE_TAG'
-    
+ping_host:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ping -c 4 -W 1 $STAGING_SSH_HOST
+ping_local_network_machine:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ping -c 4 -W 1 192.168.1.40  
+ping_local_network_gateway:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ping -c 4 -W 1 192.168.1.254
+ping_bridge_network_gateway:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ping -c 4 -W 1 172.17.0.1 
+ping_google_dns:
+  stage: test_ping
+  image: kroniak/ssh-client
+  script:
+    - ping -c 4 -W 1 8.8.8.8 
